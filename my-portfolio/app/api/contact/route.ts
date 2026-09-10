@@ -33,12 +33,11 @@ export async function POST(request: Request) {
     }
 
     const resend = getResendClient();
-    const recipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'hello@lumynex.com';
 
-    // Dispatch notification email
+    // Dispatch notification email directly to your verified Resend account email
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio Inquiry <onboarding@resend.dev>', // Replace with your domain once verified on Resend
-      to: [recipient],
+      from: 'Portfolio Inquiry <onboarding@resend.dev>',
+      to: ['oluwafemiayodeji37@gmail.com'],
       replyTo: email,
       subject: `⚡ New Project Inquiry: ${service} (${budget})`,
       html: `
